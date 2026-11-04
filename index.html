@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Achadinhos da Jess</title>
+<meta name="description" content="Os achadinhos da Shopee que aparecem nos vídeos da @jessindicaai: casa, cozinha, moda e rotina de mãe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--creme:#F7EFE5;--creme2:#FFFAF4;--cafe:#2E211A;--cafe2:#6B5548;--terracota:#B4472A;--argila:#EBCBB8;--oliva:#55622F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--creme);color:var(--cafe);font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.topo{max-width:960px;margin:0 auto;padding:28px 16px 8px;text-align:center}
+.selo{display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 8px;border-radius:999px;background:var(--creme2);font-family:Lora,serif;font-style:italic;font-weight:700;box-shadow:0 2px 10px rgba(46,33,26,.12)}
+.ck{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--oliva);color:var(--creme);font-style:normal;font-size:13px}
+h1{font-family:Lora,serif;font-size:clamp(28px,7vw,40px);line-height:1.1;margin:16px 0 6px}
+h1 span{background:var(--terracota);color:var(--creme);padding:0 14px 4px;border-radius:999px}
+.sub{color:var(--cafe2);font-size:15px;max-width:520px;margin:0 auto}
+.busca{position:sticky;top:0;z-index:5;background:var(--creme);padding:12px 16px 8px;max-width:960px;margin:0 auto}
+.busca input{width:100%;padding:14px 18px;border-radius:999px;border:2px solid var(--argila);background:var(--creme2);font:500 16px Poppins,sans-serif;color:var(--cafe);outline:none}
+.busca input:focus{border-color:var(--terracota)}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cats button{flex:0 0 auto;padding:8px 16px;border-radius:999px;border:0;background:var(--argila);color:var(--cafe);font:600 14px Poppins,sans-serif;cursor:pointer}
+.cats button.on{background:var(--cafe);color:var(--creme)}
+.grade{max-width:960px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.card{position:relative;background:var(--creme2);border-radius:22px;overflow:hidden;box-shadow:0 4px 16px rgba(46,33,26,.10);display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.card img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--argila);display:block}
+.num{position:absolute;top:10px;left:10px;background:var(--terracota);color:var(--creme);font:700 15px Poppins,sans-serif;padding:4px 11px;border-radius:999px}
+.info{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.nome{font-family:Lora,serif;font-weight:700;font-size:16px;line-height:1.2}
+.cat{font-size:12px;color:var(--cafe2)}
+.ver{margin-top:auto;text-align:center;background:var(--oliva);color:var(--creme);border-radius:999px;padding:8px;font-weight:600;font-size:14px}
+.vazio{grid-column:1/-1;text-align:center;color:var(--cafe2);padding:40px 0}
+footer{text-align:center;color:var(--cafe2);font-size:12px;padding:0 16px 32px;max-width:640px;margin:0 auto;line-height:1.5}
+footer a{color:var(--terracota);font-weight:600}
+</style>
+</head>
+<body>
+<header class="topo">
+  <span class="selo"><span class="ck">✓</span>Jess indica</span>
+  <h1>Achadinhos <span>da Jess</span></h1>
+  <p class="sub">Viu num vídeo meu? Procura pelo <b>número</b> ou pelo nome. Tudo da Shopee, escolhido a dedo pra vida de mãe ficar mais leve 💛</p>
+</header>
+<div class="busca">
+  <input id="q" type="search" inputmode="search" placeholder="Busque: nº 15, fatiador, Natal…" aria-label="Buscar achadinho">
+  <div class="cats" id="cats" role="tablist"></div>
+</div>
+<main class="grade" id="grade"></main>
+<footer>
+  Contém links de afiliada: se você comprar por aqui, eu ganho uma comissão e você não paga nada a mais. Preços e estoque mudam na Shopee.<br>
+  <a href="https://www.instagram.com/jessindicaai/">@jessindicaai</a>
+</footer>
+<script>
+const DADOS = [{"n": 1, "nome": "Kit 10 cestos organizadores", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mhbwmr71j9j9bd", "link": "https://s.shopee.com.br/1Lh4xBSRme", "nota": "4.9", "novo": "2026-10-28"}, {"n": 2, "nome": "Porta-ovos rolante 4 andares", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-mdq1kgvrfpvdba", "link": "https://s.shopee.com.br/4LKgWhYYYc", "nota": "4.8", "novo": "2026-10-28"}, {"n": 3, "nome": "Porta-latas para geladeira", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-mbfa95z4yg6d6f", "link": "https://s.shopee.com.br/1BNeksxwt7", "nota": "4.9", "novo": "2026-10-28"}, {"n": 4, "nome": "Organizador giratório 360°", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/sg-11134201-824iw-mpdxnwyjrf2mde", "link": "https://s.shopee.com.br/7fb8UpqJyi", "nota": "4.8", "novo": "2026-10-28"}, {"n": 5, "nome": "Cesto com tampa e escorredor", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-m2qyi1dskes53c", "link": "https://s.shopee.com.br/7fb8Uq8OzO", "nota": "4.9", "novo": "2026-10-27"}, {"n": 6, "nome": "Porta-frios duplo", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-mbbjeug2bfrj7f", "link": "https://s.shopee.com.br/114EYapF4H", "nota": "4.9", "novo": "2026-10-27"}, {"n": 7, "nome": "Saleiro com colher", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/sg-11134201-824go-mptvxa3sapl870", "link": "https://s.shopee.com.br/4qGx7dsNwc", "nota": "4.8", "novo": "2026-10-27"}, {"n": 8, "nome": "Prateleira extensível", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-lyl3rbt7ew2t60", "link": "https://s.shopee.com.br/114EYbJhH4", "nota": "4.8", "novo": "2026-10-27"}, {"n": 9, "nome": "Etiquetas para potes", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-81zu6-ml55bhhz1ts446", "link": "https://s.shopee.com.br/4B1GKQPimk", "nota": "4.9", "novo": "2026-10-27"}, {"n": 10, "nome": "Bomba elétrica de encher balão", "cat": "Casa", "img": "https://cf.shopee.com.br/file/sg-11134201-7rcc0-lr0tbvqd23amd3", "link": "https://s.shopee.com.br/7AertweYqb", "nota": "4.9", "novo": "2026-10-28"}, {"n": 11, "nome": "Kit boleira e doceiras", "cat": "Casa", "img": "https://cf.shopee.com.br/file/br-11134207-820mc-mlox4rk3ncw6d3", "link": "https://s.shopee.com.br/9KjMTvnZHW", "nota": "4.8", "novo": "2026-10-28"}, {"n": 12, "nome": "Kit 2 camisetas básicas", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-820lw-mt7fg93oent342", "link": "https://s.shopee.com.br/1qdLY9cbEg", "nota": "4.8", "novo": "2026-10-28"}, {"n": 13, "nome": "Kit 5 regatas caneladas", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-m9rv53hodhc2c5", "link": "https://s.shopee.com.br/5LDDiagOQf", "nota": "4.9", "novo": "2026-10-28"}, {"n": 14, "nome": "Body canelado gola alta", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-820lw-mpo2e8iolm9u2c", "link": "https://s.shopee.com.br/3VlZXE4yHI", "nota": "4.9", "novo": "2026-10-28"}, {"n": 15, "nome": "Calça jeans wide leg", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mftpfyzvikn40c", "link": "https://s.shopee.com.br/2qVsk0Ki09", "nota": "4.8", "novo": "2026-10-28"}, {"n": 16, "nome": "Calça pantalona de alfaiataria", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-820lp-mrx2g36hd1xj1e", "link": "https://s.shopee.com.br/40hq89YHKz", "nota": "4.8", "novo": "2026-10-28"}, {"n": 17, "nome": "Cardigã de tricô com botões", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-23030-5xl0tm352nov42", "link": "https://s.shopee.com.br/1qdLYAxiHD", "nota": "4.9", "novo": "2026-10-28"}, {"n": 18, "nome": "Blazer alongado de alfaiataria", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-820l6-mrxlvv1mqghydf", "link": "https://s.shopee.com.br/6fibJ3xKAK", "nota": "4.8", "novo": "2026-10-28"}, {"n": 19, "nome": "Tênis branco plataforma", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mfn939o7xlvp9d", "link": "https://s.shopee.com.br/2LZc96V0Vy", "nota": "4.9", "novo": "2026-10-28"}, {"n": 20, "nome": "Kit 4 cintos fivela dourada", "cat": "Moda", "img": "https://cf.shopee.com.br/file/br-11134207-820lb-mlxqhuuk5r0g91", "link": "https://s.shopee.com.br/7fb8UuOJho", "nota": "4.8", "novo": "2026-10-28"}, {"n": 21, "nome": "Garrafa térmica inox 500 ml", "cat": "Rotina", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-mcnq5vetrk8i9b", "link": "https://s.shopee.com.br/50aNK0uOft", "nota": "4.9", "novo": "2026-10-29"}, {"n": 22, "nome": "Sacola dobrável que vira carteira", "cat": "Rotina", "img": "https://cf.shopee.com.br/file/br-11134207-820lw-ms4cr2ehlqtjc0", "link": "https://s.shopee.com.br/3VlZXGCxn2", "nota": "4.8", "novo": "2026-10-29"}, {"n": 23, "nome": "Lancheira térmica", "cat": "Rotina", "img": "https://cf.shopee.com.br/file/sg-11134201-8259h-mq3rnps5q4un49", "link": "https://s.shopee.com.br/9KjMTz8lej", "nota": "4.9", "novo": "2026-10-29"}, {"n": 24, "nome": "Organizador de banco de carro", "cat": "Rotina", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-mbpqo7w3xzyx2b", "link": "https://s.shopee.com.br/3qOPvslNC4", "nota": "4.9", "novo": "2026-10-29"}, {"n": 25, "nome": "Mochila de academia com porta-tênis", "cat": "Rotina", "img": "https://cf.shopee.com.br/file/br-11134207-7r98o-lr6ast4d3go444", "link": "https://s.shopee.com.br/5fq47FvVlZ", "nota": "4.8", "novo": "2026-10-29"}, {"n": 26, "nome": "Pochete esportiva fininha", "cat": "Rotina", "img": "https://cf.shopee.com.br/file/sg-11134201-825b8-mrd78mwouy2s9d", "link": "https://s.shopee.com.br/40hq8CJSHD", "nota": "4.9", "novo": "2026-10-29"}, {"n": 27, "nome": "Chinelo nuvem", "cat": "Conforto", "img": "https://cf.shopee.com.br/file/sg-11134201-825a7-mqc017gre5u44d", "link": "https://s.shopee.com.br/1Lh4xIlCni", "nota": "4.7", "novo": "2026-10-31"}, {"n": 28, "nome": "Futon dobrável pro sofá ou chão", "cat": "Conforto", "img": "https://cf.shopee.com.br/file/br-11134207-820m4-mmezy42csphjee", "link": "https://s.shopee.com.br/9KjMU0Twwp", "nota": "4.9", "novo": "2026-10-31"}, {"n": 29, "nome": "Mini ventilador com suporte de celular", "cat": "Conforto", "img": "https://cf.shopee.com.br/file/sg-11134201-7rblb-m5vls4uurod3e2", "link": "https://s.shopee.com.br/4qGx7k3A3C", "nota": "4.9", "novo": "2026-10-31"}, {"n": 30, "nome": "Copo térmico 1,2 L com tampa e canudo", "cat": "Conforto", "img": "https://cf.shopee.com.br/file/br-11134207-820lw-mrsfn2n1nkec7c", "link": "https://s.shopee.com.br/6q21VQD4qr", "nota": "5", "novo": "2026-10-31"}, {"n": 31, "nome": "Baby doll de algodão", "cat": "Conforto", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mf1r3c6npkp2ab", "link": "https://s.shopee.com.br/9pfd4wJK8A", "nota": "4.9", "novo": "2026-10-31"}, {"n": 32, "nome": "Saco organizador pra edredom", "cat": "Organização", "img": "https://cf.shopee.com.br/file/sg-11134201-7rdvx-lxrg4c85nux8d3", "link": "https://s.shopee.com.br/AKbtfrYwyp", "nota": "4.9", "novo": "2026-11-01"}, {"n": 33, "nome": "Colmeia organizadora de gaveta", "cat": "Organização", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mfvhv2o7wtfk77", "link": "https://s.shopee.com.br/9zz3HFn0T0", "nota": "4.9", "novo": "2026-11-01"}, {"n": 34, "nome": "Kit 3 nécessaires transparentes", "cat": "Organização", "img": "https://cf.shopee.com.br/file/sg-11134201-7rdy4-mcc4llc8xbix14", "link": "https://s.shopee.com.br/5fq47IL6P3", "nota": "4.9", "novo": "2026-11-01"}, {"n": 35, "nome": "Kit 5 sacolas organizadoras", "cat": "Organização", "img": "https://cf.shopee.com.br/file/br-11134207-81zuc-ml23h4ve9mgy85", "link": "https://s.shopee.com.br/4qGx7lgM2S", "nota": "4.9", "novo": "2026-11-01"}, {"n": 36, "nome": "Projetor de luz de Natal", "cat": "Natal", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mgdqv550dp1caf", "link": "https://s.shopee.com.br/LoXlVEbR4", "nota": "4.8", "novo": "2026-11-03"}, {"n": 37, "nome": "Papai Noel escalando a escada", "cat": "Natal", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mg42hqs6iv4035", "link": "https://s.shopee.com.br/9zz3HGvoXT", "nota": "4.8", "novo": "2026-11-03"}, {"n": 38, "nome": "Fatiador 16 em 1", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-81z1k-mhjfa9ir0mbq21", "link": "https://s.shopee.com.br/6VPB6qQo20", "nota": "4.8", "novo": "2026-11-04"}, {"n": 39, "nome": "Mini processador elétrico", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-820ly-msmmi5858b9iaf", "link": "https://s.shopee.com.br/1BhMu756M", "nota": "4.9", "novo": "2026-11-04"}, {"n": 40, "nome": "Escorredor de louça suspenso", "cat": "Cozinha", "img": "https://cf.shopee.com.br/file/br-11134207-820lw-mqciknpzn8xs61", "link": "https://s.shopee.com.br/gROA8HKZ1", "nota": "4.8", "novo": "2026-11-04"}];
+const ordem = ['Todos', ...Array.from(new Set(DADOS.slice().reverse().map(d => d.cat)))];
+let cat = 'Todos';
+const semAcento = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const cats = document.getElementById('cats'), grade = document.getElementById('grade'), q = document.getElementById('q');
+ordem.forEach(c => {
+  const b = document.createElement('button');
+  b.textContent = c; b.setAttribute('role', 'tab');
+  b.onclick = () => { cat = c; desenhar(); };
+  cats.appendChild(b);
+});
+function desenhar() {
+  [...cats.children].forEach(b => b.classList.toggle('on', b.textContent === cat));
+  const t = semAcento(q.value.trim()), n = t.replace(/^n[ºo°.]?\s*/, '');
+  const lista = DADOS.slice().reverse().filter(d =>
+    (cat === 'Todos' || d.cat === cat) &&
+    (!t || (/^\d+$/.test(n) ? String(d.n) === n : semAcento(d.nome + ' ' + d.cat).includes(t))));
+  grade.innerHTML = lista.length ? '' : '<p class="vazio">Não achei esse… tenta outro número ou palavra 🔍</p>';
+  lista.forEach(d => {
+    const a = document.createElement('a');
+    a.className = 'card'; a.href = d.link; a.target = '_blank'; a.rel = 'noopener sponsored';
+    a.innerHTML = `<img loading="lazy" alt=""><span class="num">nº ${d.n}</span><div class="info"><p class="nome"></p><p class="cat"></p><span class="ver">Ver na Shopee</span></div>`;
+    a.querySelector('img').src = d.img; a.querySelector('img').alt = d.nome;
+    a.querySelector('.nome').textContent = d.nome; a.querySelector('.cat').textContent = d.cat;
+    grade.appendChild(a);
+  });
+}
+q.addEventListener('input', desenhar);
+const p = new URLSearchParams(location.search).get('n'); if (p) q.value = p;
+desenhar();
+</script>
+</body>
+</html>
